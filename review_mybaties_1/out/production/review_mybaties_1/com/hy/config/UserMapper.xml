@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hy.dao.UserMapper">
+
+    <cache></cache>
+    <!-- 需求：通过id查询用户 -->
+    <select id="findUserById" parameterType="int" resultMap="UserAndItemsResultMap">
+        SELECT *
+        FROM user
+        WHERE id = #{id}
+    </select>
+
+    <select id="findUserByName" parameterType="java.lang.String" resultType="User">
+        SELECT *
+        FROM user
+        WHERE username LIKE '%${value}%'
+    </select>
+
+    <insert id="insertUser" parameterType="User">
+        insert into user(username,birthday,sex,address) values(#{username},#{birthday},#{sex},#{address})
+
+        <!-- 将插入数据的主键返回，返回到user对象中 -->
+        <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
+            select last_insert_id()
+        </selectKey>
+
+        <!--
+        <selectKey keyProperty="id" order="BEFORE" resultType="java.lang.String">
+            select uuid()
+        </selectKey>
+         -->
+    </insert>
+    <!--<select id="findUserList" parameterType="com.hy.model.UserQueryVo" resultType="com.hy.model.User">-->
+    <!--SELECT *-->
+    <!--FROM user-->
+    <!--WHERE user.sex = #{user.sex} AND user.username LIKE '%${user.name}%'-->
+    <!--</select>-->
+
+
+    <sql id="query_user_where">
+        <if test="user!=null">
+            <if test="user.sex!=null and  user.sex!='' ">
+                and user.sex = #{user.sex}
+            </if>
+            <if test="user.name!=null and user.name!=''">
+                and user.username like '%${user.name}%'
+            </if>
+        </if>
+        <if test="ids!=null">
+            <!-- 使用右边的sql拼接：AND (id=1 OR id=12 OR id=17) -->
+            <foreach collection="ids" item="user_id" open="AND (" close=")" separator="OR">
+                id=#{user_id}
+            </foreach>
+        </if>
+    </sql>
+
+    <!--<select id="findUserList" parameterType="com.hy.model.UserQueryVo" resultType="com.hy.model.User">-->
+    <!--select * from user-->
+
+    <!--<where>-->
+    <!--<if test="user!=null">-->
+    <!--<if test="user.sex!=null and  user.sex!='' ">-->
+    <!--and user.sex = #{user.sex}-->
+    <!--</if>-->
+    <!--<if test="user.name!=null and user.name!=''">-->
+    <!--and user.username like '%${user.name}%'-->
+    <!--</if>-->
+
+    <!--</if>-->
+    <!--</where>-->
+    <!--</select>-->
+
+
+    <select id="findUserList" parameterType="com.hy.model.UserQueryVo" resultType="User">
+        select * from user
+        <where>
+            <!-- 引用sql片段的id，如果refid指定的id不在本mapper文件中，需要在前面加上namespace -->
+            <include refid="query_user_where"></include>
+            <!-- 还可以引用其他sql片段 -->
+        </where>
+    </select>
+
+    <resultMap type="user" id="userResultMap">
+        <id column="id_" property="id"/>
+        <result column="username_" property="name"/>
+    </resultMap>
+
+    <select id="findUserByIdResultMap" parameterType="int" resultMap="userResultMap">
+        SELECT
+            id       id_,
+            username username_
+        FROM user
+        WHERE id = #{id}
+    </select>
+
+
+    <update id="updateUser" parameterType="User">
+        UPDATE user
+        SET username = #{name}, birthday = #{birthday}, sex = #{sex}, address = #{address}
+        WHERE id = #{id}
+    </update>
+
+
+    <resultMap type="User" id="UserAndItemsResultMap">
+        <!-- 用户信息 -->
+        <id column="user_id" property="id"/>
+        <result column="username" property="name"/>
+        <result column="sex" property="sex"/>
+        <result column="address" property="address"/>
+    </resultMap>
+</mapper>
+

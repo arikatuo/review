@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.hy.model">
+    <class name="Project" table="project">
+        <id name="proid" type="java.lang.Integer" column="proid">
+            <generator class="increment"></generator>
+        </id>
+        <property name="proname" type="java.lang.String" column="proname"/>
+        <set name="employees" table="proemp" >
+            <key column="rempid"></key>
+            <many-to-many class="com.hy.model.Employee" column="rid"/>
+        </set>
+    </class>
+</hibernate-mapping>

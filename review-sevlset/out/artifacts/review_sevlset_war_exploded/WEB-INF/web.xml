@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+    <!-- 初始的页面 -->
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+        <welcome-file>index.htm</welcome-file>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+    <!-- 用户名和密码验证的servlet -->
+    <servlet>
+        <servlet-name>Servlet_Login_1</servlet-name>
+        <servlet-class>com.hy.Servlet_Login_1</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Servlet_Login_1</servlet-name>
+        <url-pattern>/servlet/Servlet_Login_1</url-pattern>
+    </servlet-mapping>
+    <!-- 显示欢迎的servlet -->
+    <servlet>
+        <servlet-name>Welcome</servlet-name>
+        <servlet-class>com.hy.Welcome</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Welcome</servlet-name>
+        <url-pattern>/servlet/Welcome</url-pattern>
+    </servlet-mapping>
+
+</web-app>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="review-jsp:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="review-jsp-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="review-jsp:war exploded" />
+    </root>
+  </artifact>
+</component>

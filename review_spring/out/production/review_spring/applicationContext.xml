@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:p="http://www.springframework.org/schema/p"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+    <!-- 配置需要被Spring管理的Bean（创建，创建后放在了Spring IOC容器里面）-->
+    <bean id="hello" class="com.hy.java.HelloWorld">
+        <!-- 配置该Bean需要注入的属性（是通过属性set方法来注入的） -->
+        <property name="info" value="Happy New Year!"/>
+    </bean>
+
+    <bean id="stu1" name="stu1" class="com.hy.model.Stu1">
+        <constructor-arg>
+            <value>韩懿帅逼</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value>男</value>
+        </constructor-arg>
+        <constructor-arg>
+            <value>21</value>
+        </constructor-arg>
+    </bean>
+
+    <bean id="monitor" name="moniter" class="com.hy.model.Moniter">
+        <property name="sex" value="女"/>
+        <property name="name" value="李燕女士"/>
+        <property name="age" value="21"/>
+    </bean>
+
+
+    <bean id="school" class="com.hy.model.School">
+        <!--List 注入例子 -->
+        <property name="listStu">
+            <list>
+                <ref bean="moniter"/>  <!--使用上面已定义好的bean -->
+                <ref bean="moniter"/>  <!--使用上面已定义好的bean -->
+                <ref bean="stu1"/>     <!--使用上面已定义好的bean -->
+                <bean class="com.hy.model.Moniter"> <!--定义学生匿名内部类，用setter方法注入 -->
+                    <property name="age" value="20"/>
+                    <property name="name" value="阿屁"/>
+                    <property name="sex" value="男"/>
+                </bean>
+                <value>1</value>
+                <value>hello</value>
+            </list>
+        </property>
+
+        <!--set 注入例子 -->
+        <property name="setStu">
+            <set>
+                <ref bean="moniter"/>  <!--使用上面已定义好的bean -->
+                <ref bean="stu1"/>     <!--使用上面已定义好的bean -->
+                <ref bean="stu1"/>     <!--使用上面已定义好的bean -->
+                <bean class="com.hy.model.Stu1"> <!--定义学生匿名内部类，用constructor方法注入 -->
+                    <constructor-arg value="大平" index="0"></constructor-arg>
+                    <constructor-arg value="男" index="1"></constructor-arg>
+                    <constructor-arg value="10" index="2"></constructor-arg>
+                </bean>
+                <value>333333</value>
+                <value>Evankaka</value>
+            </set>
+        </property>
+
+        <!--map 注入例子 -->
+        <property name="mapStu">
+            <map>
+                <entry key="key1">
+                    <ref bean="moniter"/>  <!--使用上面已定义好的bean -->
+                </entry>
+                <entry key="key2">
+                    <bean class="com.hy.model.Moniter"> <!--定义学生匿名内部类，用setter方法注入 -->
+                        <property name="age" value="80"/>
+                        <property name="name" value="小王"/>
+                        <property name="sex" value="男"/>
+                    </bean>
+                </entry>
+                <entry key="key3">
+                    <value>student2</value>
+                </entry>
+                <entry key="key4">
+                    <value>56</value>
+                </entry>
+            </map>
+        </property>
+
+    </bean>
+</beans>
