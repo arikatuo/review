@@ -2,8 +2,8 @@
 <beans
         xmlns="http://www.springframework.org/schema/beans"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xmlns:p="http://www.springframework.org/schema/p"
-        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+        xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <!-- 配置需要被Spring管理的Bean（创建，创建后放在了Spring IOC容器里面）-->
     <bean id="hello" class="com.hy.java.HelloWorld">
         <!-- 配置该Bean需要注入的属性（是通过属性set方法来注入的） -->
@@ -22,10 +22,11 @@
         </constructor-arg>
     </bean>
 
-    <bean id="monitor" name="moniter" class="com.hy.model.Moniter">
+    <bean id="moniter" name="moniter" class="com.hy.model.Moniter">
         <property name="sex" value="女"/>
-        <property name="name" value="李燕女士"/>
+
         <property name="age" value="21"/>
+        <property name="name" value="李燕女士"/>
     </bean>
 
 
@@ -81,8 +82,46 @@
                 <entry key="key4">
                     <value>56</value>
                 </entry>
+
             </map>
+
         </property>
 
     </bean>
+
+
+    <bean id="students" class="com.hy.model.Students">
+        <property name="ID" value="1"/>
+        <property name="name" value="a"/>
+        <property name="age" value="1"/>
+        <property name="sex" value="男"/>
+    </bean>
+
+    <bean id="teacher" class="com.hy.model.Teacher" >
+        <property name="ID">
+            <value>1</value>
+        </property>
+
+        <property name="name" value="b"/>
+        <property name="age" value="2"/>
+        <property name="sex" value="男"/>
+
+    </bean>
+
+    <bean id="teachFile1" class="com.hy.model.TeachFile" >
+        <property name="students" ref="students"/>
+        <property name="teacher" ref="teacher"/>
+    </bean>
+
+    <bean id="teachFile2" class="com.hy.model.TeachFile" autowire="byName"/>
+
+    <bean id="teachFile3" class="com.hy.model.TeachFile" autowire="byType"/>
+
+    <bean id="teachFile4" class="com.hy.model.TeachFile" autowire="constructor"/>
+
+    <bean id="personService" class="com.hy.model.PersonService" scope="singleton"  init-method="init"  destroy-method="cleanUp">
+
+    </bean>
+
+    <context:component-scan base-package="com.hy.model" />
 </beans>

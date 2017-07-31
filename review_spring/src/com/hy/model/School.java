@@ -6,7 +6,7 @@ import java.util.*;
  * Created by dell on 2017/7/27.
  */
 public class School {
-    private List listStu =new ArrayList();
+    private List listStu ;
     private Set setStu;
     private Map mapStu;
 
