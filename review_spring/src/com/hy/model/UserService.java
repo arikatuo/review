@@ -10,7 +10,7 @@ import javax.annotation.Resource;
 @Service
 public class UserService {
 
-    @Resource(name = "userDao")
+    @Resource(name = "userDao",type = UserDao.class)
     private UserDao userDao;
 
 

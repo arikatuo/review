@@ -3,12 +3,14 @@
         xmlns="http://www.springframework.org/schema/beans"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
-        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+        xmlns:aop="http://www.springframework.org/schema/aop"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
     <!-- 配置需要被Spring管理的Bean（创建，创建后放在了Spring IOC容器里面）-->
     <bean id="hello" class="com.hy.java.HelloWorld">
         <!-- 配置该Bean需要注入的属性（是通过属性set方法来注入的） -->
         <property name="info" value="Happy New Year!"/>
     </bean>
+
 
     <bean id="stu1" name="stu1" class="com.hy.model.Stu1">
         <constructor-arg>
@@ -28,7 +30,6 @@
         <property name="age" value="21"/>
         <property name="name" value="李燕女士"/>
     </bean>
-
 
     <bean id="school" class="com.hy.model.School">
         <!--List 注入例子 -->
@@ -89,7 +90,6 @@
 
     </bean>
 
-
     <bean id="students" class="com.hy.model.Students">
         <property name="ID" value="1"/>
         <property name="name" value="a"/>
@@ -97,7 +97,7 @@
         <property name="sex" value="男"/>
     </bean>
 
-    <bean id="teacher" class="com.hy.model.Teacher" >
+    <bean id="teacher" class="com.hy.model.Teacher">
         <property name="ID">
             <value>1</value>
         </property>
@@ -108,7 +108,7 @@
 
     </bean>
 
-    <bean id="teachFile1" class="com.hy.model.TeachFile" >
+    <bean id="teachFile1" class="com.hy.model.TeachFile">
         <property name="students" ref="students"/>
         <property name="teacher" ref="teacher"/>
     </bean>
@@ -119,9 +119,41 @@
 
     <bean id="teachFile4" class="com.hy.model.TeachFile" autowire="constructor"/>
 
-    <bean id="personService" class="com.hy.model.PersonService" scope="singleton"  init-method="init"  destroy-method="cleanUp">
+    <bean id="personService" class="com.hy.model.PersonService" scope="singleton" init-method="init"
+          destroy-method="cleanUp">
 
     </bean>
 
-    <context:component-scan base-package="com.hy.model" />
+    <context:component-scan base-package="com.hy.model"/>
+    <!--<context:annotation-config />-->
+
+
+    <!--<bean id="babyPerson" class="com.hy.model.BabyPerson"/>   &lt;!&ndash; 被增强的bean &ndash;&gt;-->
+    <!--<bean id="adviceAspect" class="com.hy.model.AdivceMethod"/>   &lt;!&ndash; 增强方法的bean &ndash;&gt;-->
+
+    <bean id="babyPerson" class="com.hy.model.BabyPerson"/>
+    <bean id="adviceAspect" class="com.hy.model.AdivceMethod"/>
+
+    <!--<aop:config proxy-target-class="true">-->
+        <!--<aop:pointcut id="pointcut" expression="execution(* com.hy.model.BabyPerson.*(..))"/>-->
+        <!--<aop:aspect ref="adviceAspect">-->
+            <!--<aop:before method="beforeEat" pointcut-ref="pointcut"/>-->
+            <!--<aop:after method="afterEat" pointcut="execution(* com.hy.model.BabyPerson.eatLunch(..))"/>-->
+            <!--<aop:around method="aroundEat" pointcut="execution(* com.hy.model.BabyPerson.eatSupper(..))"/>-->
+        <!--</aop:aspect>-->
+    <!--</aop:config>-->
+
+
+    <!--<aop:config proxy-target-class="true">-->
+    <!--<aop:pointcut id="pointcut" expression="execution(* com.hy.model.BabyPerson.*(..))"/>  &lt;!&ndash; 定义切点 &ndash;&gt;-->
+    <!--<aop:aspect ref="adviceAspect">  &lt;!&ndash; 定义切面 &ndash;&gt;-->
+    <!--<aop:before method="beforeEat" pointcut-ref="pointcut"/>  &lt;!&ndash; 定义前置增强方法 &ndash;&gt;-->
+    <!--<aop:after method="afterEat"-->
+    <!--pointcut="execution(* com.hy.model.BabyPerson.eatLunch(..))"/>&lt;!&ndash;定义后置增加，使用匿名切点  &ndash;&gt;-->
+    <!--<aop:around method="aroundEat"-->
+    <!--pointcut="execution(* com.hy.model.BabyPerson.eatSupper(..))"/>&lt;!&ndash;定义后置增加，使用匿名切点  &ndash;&gt;-->
+    <!--</aop:aspect>-->
+    <!--</aop:config>-->
+
+    <aop:aspectj-autoproxy  />
 </beans>
