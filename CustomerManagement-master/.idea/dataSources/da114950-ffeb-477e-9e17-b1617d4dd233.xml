@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="test_1@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.2">
+    <root id="1"/>
+    <schema id="2" parent="1" name="test_1">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="crm"/>
+    <schema id="4" parent="1" name="hibernate_test"/>
+    <schema id="5" parent="1" name="hibernate_test2"/>
+    <schema id="6" parent="1" name="imooc"/>
+    <schema id="7" parent="1" name="information_schema"/>
+    <schema id="8" parent="1" name="micro_message"/>
+    <schema id="9" parent="1" name="my2"/>
+    <schema id="10" parent="1" name="mybatis"/>
+    <schema id="11" parent="1" name="mybatis_test1"/>
+    <schema id="12" parent="1" name="mysql"/>
+    <schema id="13" parent="1" name="performance_schema"/>
+    <schema id="14" parent="1" name="sakila"/>
+    <schema id="15" parent="1" name="seckill"/>
+    <schema id="16" parent="1" name="shop"/>
+    <schema id="17" parent="1" name="shopping"/>
+    <schema id="18" parent="1" name="sq_eson"/>
+    <schema id="19" parent="1" name="ssh2test"/>
+    <schema id="20" parent="1" name="student"/>
+    <schema id="21" parent="1" name="sys"/>
+    <schema id="22" parent="1" name="t1"/>
+    <schema id="23" parent="1" name="test1"/>
+    <schema id="24" parent="1" name="webshop"/>
+    <schema id="25" parent="1" name="wechat"/>
+    <schema id="26" parent="1" name="world"/>
+    <schema id="27" parent="1" name="_category"/>
+    <table id="28" parent="2" name="t_customer"/>
+    <table id="29" parent="2" name="t_user"/>
+    <column id="30" parent="28" name="id">
+      <Position>1</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="31" parent="28" name="name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="32" parent="28" name="gender">
+      <Position>3</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="33" parent="28" name="phone">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="34" parent="28" name="email">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="35" parent="28" name="description">
+      <Position>6</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <key id="36" parent="28" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="37" parent="29" name="userId">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="38" parent="29" name="userName">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="39" parent="29" name="userAge">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="40" parent="29" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>userId</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
