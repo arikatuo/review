@@ -8,9 +8,20 @@ import java.util.List;
 /**
  * Created by dell on 2017/8/1.
  */
+
+import java.util.List;
+
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
+
 public interface UserDao {
 
-    public User queryById(@Param("id") int id);
+    User selectUserById(Integer userId);
 
-    public List<User> selectUserByUserName(@Param("userName") String userNname);
+
+    List<User> selectUserByUserName(@Param("userName") String userName);
+
+
+
 }
+

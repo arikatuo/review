@@ -2,23 +2,29 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.hy.mapper.UserMapper">
-    <resultMap id="BaseResultMap" type=""
+<mapper namespace="com.hy.dao.UserDao">
+    <resultMap id="BaseResultMap" type="User">
+        <id column="USERID" property="userId"/>
+        <result column="USERNAME" property="userName"/>
+        <result column="USERPASSWORD" property="userPassword"/>
+        <result column="USEREMAIL" property="userEmail"/>
+    </resultMap>
 
-    <select id="queryById" resultType="User">
+    <select id="selectUserById" resultType="User">
         SELECT *
-        FROM t_user
-        WHERE userId = #{userId}
+        FROM tuser
+        WHERE USERID = #{userId}
     </select>
 
     <select id="selectUserByUserName" parameterType="java.lang.String" resultMap="BaseResultMap">
         SELECT *
-        FROM t_user
+        FROM tuser
+        <!-- todo-->
         WHERE 1 = 1
         <if test="userName != null and userName !=''">
-            AND USER_NAME = #{userName,jdbcType=VARCHAR}
+            AND USERNAME = #{userName,jdbcType=VARCHAR}
         </if>
-        ORDER BY USER_ID
+        ORDER BY USERID
     </select>
 
 </mapper>

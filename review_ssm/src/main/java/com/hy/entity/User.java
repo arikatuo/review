@@ -4,15 +4,26 @@ package com.hy.entity;
  * Created by dell on 2017/8/1.
  */
 public class User {
-    private int userId;
+    private Integer userId;
     private String userName;
-    private int userAge;
+    private String userPassword;
+    private String userEmail;
 
-    public int getUserId() {
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", userName='" + userName + '\'' +
+                ", userPassword='" + userPassword + '\'' +
+                ", userEmail='" + userEmail + '\'' +
+                '}';
+    }
+
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
@@ -24,11 +35,19 @@ public class User {
         this.userName = userName;
     }
 
-    public int getUserAge() {
-        return userAge;
+    public String getUserPassword() {
+        return userPassword;
     }
 
-    public void setUserAge(int userAge) {
-        this.userAge = userAge;
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
+    }
+
+    public String getUserEmail() {
+        return userEmail;
+    }
+
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 }

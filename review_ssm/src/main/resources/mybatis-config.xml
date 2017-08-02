@@ -4,6 +4,10 @@
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 
+
+    <settings>
+        <setting name="useColumnLabel" value="true"/>
+    </settings>
     <typeAliases>
         <package name="com.hy.entity"></package>
     </typeAliases>

@@ -10,7 +10,7 @@
     <!--<context:annotation-config/>-->
 
     <!--<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" />-->
-    <context:component-scan base-package="com.hy.test1,com.hy.test2"/>
+    <!--<context:component-scan base-package="com.hy.test1,com.hy.test2"/>-->
 
     <!--<bean id="b" name="b" class="com.hy.test1.B">-->
         <!--<property name="b" value="b"/>-->

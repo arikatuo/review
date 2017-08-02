@@ -7,10 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="review_ssm" />
+        <module name="review_ssm_page" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="review_ssm" target="1.6" />
+      <module name="review_ssm_page" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>
