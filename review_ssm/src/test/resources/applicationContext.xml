@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:aop="http://www.springframework.org/schema/aop"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!-- 配置需要被Spring管理的Bean（创建，创建后放在了Spring IOC容器里面）-->
+
+    <!--<context:annotation-config/>-->
+
+    <!--<bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor" />-->
+    <context:component-scan base-package="com.hy.test1,com.hy.test2"/>
+
+    <!--<bean id="b" name="b" class="com.hy.test1.B">-->
+        <!--<property name="b" value="b"/>-->
+    <!--</bean>-->
+    <!--<bean id="c" name="c" class="com.hy.test1.C">-->
+        <!--<property name="c" value="c"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="A" class="com.hy.test2.A">-->
+        <!--&lt;!&ndash;<property name="b" ref="B"/>&ndash;&gt;-->
+        <!--&lt;!&ndash;<property name="c" ref="C"/>&ndash;&gt;-->
+    <!--</bean>-->
+
+</beans>

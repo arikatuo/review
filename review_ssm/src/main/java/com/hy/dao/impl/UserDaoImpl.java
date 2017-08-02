@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import javax.jws.soap.SOAPBinding;
+import java.util.List;
 
 /**
  * Created by dell on 2017/8/1.
@@ -20,5 +21,10 @@ public class UserDaoImpl implements UserDao{
     public User queryById(int id) {
         User user=userMapper.queryById(id);
         return user;
+    }
+
+    @Override
+    public List<User> selectUserByUserName(String userNname) {
+        return null;
     }
 }
