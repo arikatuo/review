@@ -75,7 +75,6 @@
                 <a href="${pb.url}&pc=${i}">[${i}]</a>
             </c:otherwise>
         </c:choose>
-
     </c:forEach>
 
 
