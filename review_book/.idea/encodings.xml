@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding">
-    <file url="file://$PROJECT_DIR$/src/com/hy/book/c3p0-config.xml" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/hy/book/dao/AccountDAO.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/hy/book/dao/BookDAO.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/hy/book/dao/Dao.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/hy/book/dao/TradeDAO.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/hy/book/dao/TradeItemDAO.java" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/com/hy/book/dao/UserDAO.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/c3p0-config.xml" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/hy/book/dao/AccountDao.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/hy/book/dao/BookDao.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/hy/book/dao/TradeDao.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/hy/book/dao/TradeItemDao.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/hy/book/dao/UserDao.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/hy/book/db/JDBCUtils.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/hy/book/domain/Account.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/com/hy/book/domain/Book.java" charset="GBK" />
