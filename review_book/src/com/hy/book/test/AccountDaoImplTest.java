@@ -9,18 +9,30 @@ import org.junit.Test;
 
 import java.sql.Connection;
 
-/**
- * Created by dell on 2017/8/7.
- */
-public class AccountTest {
+import static org.junit.Assert.*;
 
+/**
+ * Created by dell on 2017/8/8.
+ */
+public class AccountDaoImplTest {
     private AccountDao accountDao = new AccountDaoImpl();
 
     @Test
-    public void getAccount() {
+    public void getAccount() throws Exception {
         Connection connection = JDBCUtils.getConnection();
         ConnectionContext.getInstance().bind(connection);
         Account account = accountDao.getAccount(1);
         System.out.println(account);
     }
+
+    @Test
+    public void updateAccount() throws Exception {
+        Connection connection = JDBCUtils.getConnection();
+        ConnectionContext.getInstance().bind(connection);
+        accountDao.updateAccount(1,50);
+        Account account = accountDao.getAccount(1);
+        System.out.println(account);
+
+    }
+
 }

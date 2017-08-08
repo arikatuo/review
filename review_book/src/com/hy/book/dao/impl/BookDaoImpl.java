@@ -28,7 +28,7 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
         Page<Book> bookPage = new Page<>(cb.getPageNo());
         bookPage.setTotalItemNumber(getTotalBookNumber(cb));
 
-        //todo
+        //todo  默认是3？
         bookPage.setList(getPageList(cb, 3));
 
         return bookPage;

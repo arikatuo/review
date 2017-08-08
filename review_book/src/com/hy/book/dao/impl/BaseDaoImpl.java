@@ -80,7 +80,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
     public T query(String sql, Object... args) {
 
         Connection connection = null;
-
+        //       Connection connection = JDBCUtils.getConnection();
         try {
             connection = ConnectionContext.getInstance().get();
             return queryRunner.query(connection, sql, new BeanHandler<>(clazz), args);

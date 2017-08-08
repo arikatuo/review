@@ -2,77 +2,76 @@ package com.hy.book.domain;
 
 public class TradeItem {
 
-	private Integer tradeItemId;
-	
-	//和 TradeItem 关联的 BookDao
-	private Book book;
-	
-	private int quantity;
-	
-	//和 TradeItem 关联的 BookDao 的 bookId
-	private Integer bookId;
+    private Integer tradeItemId;
 
-	private Integer tradeId;
+    //和 TradeItem 关联的 BookDao
+    private Book book;
 
-	public void setBook(Book book) {
-		this.book = book;
-	}
-	
-	public Book getBook() {
-		return book;
-	}
-	
-	public Integer getTradeItemId() {
-		return tradeItemId;
-	}
+    private int quantity;
 
-	public void setTradeItemId(Integer tradeItemId) {
-		this.tradeItemId = tradeItemId;
-	}
+    //和 TradeItem 关联的 BookDao 的 bookId
+    private Integer bookId;
 
-	public Integer getBookId() {
-		return bookId;
-	}
+    private Integer tradeId;
 
-	public void setBookId(Integer bookId) {
-		this.bookId = bookId;
-	}
+    public void setBook(Book book) {
+        this.book = book;
+    }
 
-	public int getQuantity() {
-		return quantity;
-	}
+    public Book getBook() {
+        return book;
+    }
 
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
-	}
+    public Integer getTradeItemId() {
+        return tradeItemId;
+    }
 
-	public Integer getTradeId() {
-		return tradeId;
-	}
+    public void setTradeItemId(Integer tradeItemId) {
+        this.tradeItemId = tradeItemId;
+    }
 
-	public void setTradeId(Integer tradeId) {
-		this.tradeId = tradeId;
-	}
+    public Integer getBookId() {
+        return bookId;
+    }
 
-	public TradeItem(Integer tradeItemId, Integer bookId, int quantity,
-			Integer tradeId) {
-		super();
-		this.tradeItemId = tradeItemId;
-		this.bookId = bookId;
-		this.quantity = quantity;
-		this.tradeId = tradeId;
-	}
-	
-	public TradeItem() {
-		// TODO Auto-generated constructor stub
-	}
+    public void setBookId(Integer bookId) {
+        this.bookId = bookId;
+    }
 
-	@Override
-	public String toString() {
-		return "TradeItem [tradeItemId=" + tradeItemId + ", quantity="
-				+ quantity + ", bookId=" + bookId + "]";
-	}
-	
-	
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    public Integer getTradeId() {
+        return tradeId;
+    }
+
+    public void setTradeId(Integer tradeId) {
+        this.tradeId = tradeId;
+    }
+
+    public TradeItem(Integer tradeItemId, Integer bookId, int quantity,
+                     Integer tradeId) {
+        super();
+        this.tradeItemId = tradeItemId;
+        this.bookId = bookId;
+        this.quantity = quantity;
+        this.tradeId = tradeId;
+    }
+
+    public TradeItem() {
+        // TODO Auto-generated constructor stub
+    }
+
+    @Override
+    public String toString() {
+        return "TradeItem [tradeItemId=" + tradeItemId + ", quantity="
+                + quantity + ", bookId=" + bookId + "]";
+    }
+
 
 }
