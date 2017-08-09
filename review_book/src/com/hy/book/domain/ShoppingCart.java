@@ -65,5 +65,8 @@ public class ShoppingCart {
         }
     }
 
+    public boolean isEmpty() {
+        return books.isEmpty();
+    }
 
 }
