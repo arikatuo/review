@@ -44,7 +44,7 @@ public class ShoppingCart {
 
     public int getBookNumber() {
         int total = 0;
-        for (ShoppingCartItem shoppingCartItem : getItems()) {
+        for (ShoppingCartItem shoppingCartItem : books.values()){
             total = total + shoppingCartItem.getQuantity();
         }
         return total;

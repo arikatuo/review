@@ -1,16 +1,21 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: sumimasah
-  Date: 2017/8/9
-  Time: 14:07
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
 
-</body>
-</html>
+<script type="text/javascript">
+
+    $(function(){
+        $("a").each(function(){
+            this.onclick = function(){
+                var serializeVal = $(":hidden").serialize();
+                var href = this.href + "&" + serializeVal;
+                window.location.href = href;
+                return false;
+            };
+        });
+
+    });
+
+</script>
+
+<input type="hidden" name="minPrice" value="${param.minPrice }"/>
+<input type="hidden" name="maxPrice" value="${param.maxPrice }"/>

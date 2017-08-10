@@ -192,9 +192,9 @@ public class BookServlet extends HttpServlet {
 
     }
 
-    protected void fowardPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void forwardPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String page = request.getParameter("page");
-        request.getRequestDispatcher("/WEB-INF/" + page + ".jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/" + page + ".jsp").forward(request, response);
     }
 
     protected void addToCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -205,7 +205,33 @@ public class BookServlet extends HttpServlet {
         bookService.addToChar(bookId, shoppingCart);
         getBooks(request, response);
 
-        // request.getRequestDispatcher("/WEB-INF/pages/cart.jsp").forward(request, response);
+        //        request.getRequestDispatcher("/WEB-INF/pages/cart.jsp").forward(request, response);
+
+        //1. 获取商品的 id
+//        String idStr = request.getParameter("bookId");
+//        int id = -1;
+//        boolean flag = false;
+//
+//        try {
+//            id = Integer.parseInt(idStr);
+//        } catch (Exception e) {}
+//
+//        if(id > 0){
+//            //2. 获取购物车对象
+//            ShoppingCart sc = BookStoreWebUtils.getShopppingcart(request);
+//
+//            //3. 调用 BookService 的 addToCart() 方法把商品放到购物车中
+//            flag = bookService.addToChar(id, sc);
+//        }
+//
+//        if(flag){
+//            //4. 直接调用 getBooks() 方法.
+//            getBooks(request, response);
+//            return;
+//        }
+//
+//        response.sendRedirect(request.getContextPath() + "/error-1.jsp");
+
     }
 
     protected void getBookDetails(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -240,6 +266,7 @@ public class BookServlet extends HttpServlet {
         Page<Book> bookPage = bookService.getBookPage(criteriaBook);
         request.setAttribute("page", bookPage);
 
-        request.getRequestDispatcher("/WEB-INF/pages/books.jsp").forward(request, response);
+        request.getRequestDispatcher("/WEB-INF/pages/book2.jsp").forward(request, response);
     }
+
 }

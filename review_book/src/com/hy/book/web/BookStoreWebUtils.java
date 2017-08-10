@@ -13,8 +13,9 @@ public class BookStoreWebUtils {
     public static ShoppingCart getShopppingcart(HttpServletRequest request) {
         HttpSession session = request.getSession();
 
-        ShoppingCart shoppingCart = (ShoppingCart) session.getAttribute("ShopCart");
+        ShoppingCart shoppingCart = (ShoppingCart) session.getAttribute("ShoppingCart");
         if (shoppingCart == null) {
+            shoppingCart = new ShoppingCart();
             session.setAttribute("ShoppingCart", shoppingCart);
         }
         return shoppingCart;
