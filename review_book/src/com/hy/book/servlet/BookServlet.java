@@ -248,16 +248,15 @@ public class BookServlet extends HttpServlet {
         float minPrice = 0;
         float maxPrice = Integer.MAX_VALUE;
 
-
         //todo
         if (request.getParameter("pageNo") != null) {
             pageNo = Integer.parseInt(request.getParameter("pageNo"));
         }
         if (request.getParameter("minPrice") != null) {
-            minPrice = Integer.parseInt(request.getParameter("minPrice"));
+            minPrice = Float.parseFloat(request.getParameter("minPrice"));
         }
         if (request.getParameter("maxPrice") != null) {
-            maxPrice = Integer.parseInt(request.getParameter("maxPrice"));
+            maxPrice = Float.parseFloat(request.getParameter("maxPrice"));
         }
 
 
@@ -267,6 +266,10 @@ public class BookServlet extends HttpServlet {
         request.setAttribute("page", bookPage);
 
         request.getRequestDispatcher("/WEB-INF/pages/book2.jsp").forward(request, response);
+    }
+
+    protected void test(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getRequestDispatcher("/WEB-INF/pages/test.jsp").forward(request, response);
     }
 
 }

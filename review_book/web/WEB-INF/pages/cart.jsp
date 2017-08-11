@@ -16,7 +16,7 @@
             <td>&nbsp;&nbsp;</td>
         </tr>
 
-        <c:forEach items="${sessionScope.ShoppingCart.items }"  var="item">
+        <c:forEach items="${sessionScope.ShoppingCart.items }" var="item">
             <tr>
                 <td>${item.book.title}</td>
                 <td>${item.quantity}</td>
@@ -36,7 +36,7 @@
             </td>
 
             <td>
-                <a href="bookServlet?method=clearCart">清空购物车</a>
+                <a href="bookServlet?method=clearCart&pageNo=${param.pageNo}">清空购物车</a>
             </td>
 
             <td>

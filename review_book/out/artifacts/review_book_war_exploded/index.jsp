@@ -7,5 +7,9 @@
 <%
    response.sendRedirect("/bookServlet?method=getBooks");
 %>
+
+<%--<%--%>
+    <%--response.sendRedirect("/bookServlet?method=test");--%>
+<%--%>--%>
 </body>
 </html>

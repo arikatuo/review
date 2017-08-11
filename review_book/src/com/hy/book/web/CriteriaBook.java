@@ -2,11 +2,11 @@ package com.hy.book.web;
 
 public class CriteriaBook {
 
-    private float minPrice;
+    private float minPrice=0;
 
     private float maxPrice = Integer.MAX_VALUE;
 
-    private int pageNo;
+    private int pageNo=1;
 
     public CriteriaBook() {
     }
