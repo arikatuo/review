@@ -39,7 +39,7 @@ public class Test_4 {
 //      如果sqlSession去执行commit操作（执行插入、更新、删除），清空SqlSession中的一级缓存，这样做的目的为了让缓存中存储的是最新的信息，避免脏读。
 
         //更新user1的信息
-        user1.setName("测试用户22");
+        user1.setName("测试用22");
         userMapper.updateUser(user1);
         //执行commit操作去清空缓存
         sqlSession.commit();

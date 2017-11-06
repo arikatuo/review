@@ -1,5 +1,6 @@
 package com.hy.test;
 
+import com.hy.dao.UserMapper;
 import com.hy.model.User;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
@@ -35,7 +36,7 @@ public class Test_1 {
 
     //根据id查询用户的信息，得到一条记录的结果
     @Test
-    public void findUserById() throws IOException {
+    public void findUserById() throws Exception {
 
         SqlSession sqlSession = getSession(); //调用上面的方法获取sqlSession
 
@@ -44,8 +45,10 @@ public class Test_1 {
         //第二个参数：指定和映射文件中所匹配的parameterType类型的参数
         //selectOne表示查询出一条记录进行映射
         User user = sqlSession.selectOne("com.hy.dao.UserMapper.findUserById", 1);
+        UserMapper userMapper = sqlSession.getMapper(UserMapper.class);
+        User user1 = userMapper.findUserById(1);
 
-        System.out.println(user);
+        System.out.println(user1);
 
         //释放资源，最好放在finally中，这里只是测试程序，就不弄了
         sqlSession.close();
@@ -58,7 +61,7 @@ public class Test_1 {
         SqlSession sqlSession = getSession();
 
         //selectList表示查询出一个列表（多条记录）进行映射
-        List<User> list = sqlSession.selectList("test1.findUserByName", "张三");
+        List<User> list = sqlSession.selectList("com.hy.dao.UserMapper.findUserByName", "张三");
 
         System.out.println(list);
 
@@ -71,9 +74,9 @@ public class Test_1 {
 
         SqlSession sqlSession = getSession();
 
-        User user = new User(1, "倪升武", new Date(), "男", "同济大学");
+        User user = new User(1, "张三", new Date(), "男", "同济大学");
 
-        sqlSession.insert("test.insertUser", user); //添加一项
+        sqlSession.insert("com.hy.dao.UserMapper.insertUser", user); //添加一项
 
         //提交事务
         sqlSession.commit();

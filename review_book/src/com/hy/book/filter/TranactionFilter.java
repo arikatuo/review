@@ -39,25 +39,25 @@ public class TranactionFilter implements Filter {
 
         try {
 
-            //1. »ñÈ¡Á¬½Ó
+            //1. è·å–è¿æ¥
             connection = JDBCUtils.getConnection();
 
-            //2. ¿ªÆôÊÂÎñ
+            //2. å¼€å¯äº‹åŠ¡
             connection.setAutoCommit(false);
 
-            //3. ÀûÓÃ ThreadLocal °ÑÁ¬½ÓºÍµ±Ç°Ïß³Ì°ó¶¨
+            //3. åˆ©ç”¨ ThreadLocal æŠŠè¿æ¥å’Œå½“å‰çº¿ç¨‹ç»‘å®š
             ConnectionContext.getInstance().bind(connection);
 
-            //4. °ÑÇëÇó×ª¸øÄ¿±ê Servlet
+            //4. æŠŠè¯·æ±‚è½¬ç»™ç›®æ ‡ Servlet
             chain.doFilter(request, response);
 
-            //5. Ìá½»ÊÂÎñ
+            //5. æäº¤äº‹åŠ¡
             connection.commit();
         } catch (Exception e) {
             System.out.println(e);
             e.printStackTrace();
 
-            //6. »Ø¹öÊÂÎñ
+            //6. å›æ»šäº‹åŠ¡
             try {
                 connection.rollback();
             } catch (SQLException e1) {
@@ -69,10 +69,10 @@ public class TranactionFilter implements Filter {
             resp.sendRedirect(req.getContextPath() + "/WEB-INF/error-2.jsp");
 
         } finally {
-            //7. ½â³ı°ó¶¨
+            //7. è§£é™¤ç»‘å®š
             ConnectionContext.getInstance().remove();
 
-            //8. ¹Ø±ÕÁ¬½Ó
+            //8. å…³é—­è¿æ¥
             JDBCUtils.release(connection);
 
         }

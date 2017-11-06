@@ -50,8 +50,16 @@
     <servlet-mapping>
         <servlet-name>DisplayHeader</servlet-name>
         <!-- 访问的网址 -->
-        <url-pattern>/TomcatTest/DisplayHeader</url-pattern>
+        <url-pattern>/Tomcat</url-pattern>
     </servlet-mapping>
 
+<servlet>
+    <servlet-name>JspTest</servlet-name>
+    <servlet-class>com.hy.JspTest</servlet-class>
+</servlet>
 
+    <servlet-mapping>
+        <servlet-name>JspTest</servlet-name>
+        <url-pattern>/JspTest</url-pattern>
+    </servlet-mapping>
 </web-app>

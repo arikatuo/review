@@ -1,0 +1,23 @@
+<dataConfig>
+    <dataSource type="JdbcDataSource"
+                driver="com.mysql.jdbc.Driver"
+                url="jdbc:mysql://localhost/solr"
+                user="root"
+                password="1996"/>
+    <document>
+        <entity name="question1" query="select Guid,title,QuesBody,QuesParse,QuesType from question1 where Guid is not null">
+            <field column="Guid" name="id"/>
+            <field column="title" name="question1_title"/>
+            <field column="QuesBody" name="question1_body"/>
+            <field column="QuesParse" name="question1_parse"/>
+            <field column="QuesType" name="question1_type"/>
+        </entity>
+        <entity name="question2" query="select Guid,title,QuesBody,QuesParse,QuesType from question2 where Guid is not null">
+            <field column="Guid" name="id"/>
+            <field column="title" name="question2_title"/>
+            <field column="QuesBody" name="question2_body"/>
+            <field column="QuesParse" name="question2_parse"/>
+            <field column="QuesType" name="question2_type"/>
+        </entity>
+    </document>
+</dataConfig>

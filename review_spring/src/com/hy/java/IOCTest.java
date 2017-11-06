@@ -2,6 +2,7 @@ package com.hy.java;
 
 import com.hy.model.User;
 import com.hy.model.UserService;
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -11,6 +12,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class IOCTest {
     public static void main(String[] args) {
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
+        BeanFactory beanFactory = new ClassPathXmlApplicationContext("applicationContext.xml");
         UserService service = (UserService) applicationContext.getBean("userService");
         User user1 = (User) applicationContext.getBean("user");
         User user2 = (User) applicationContext.getBean("user");

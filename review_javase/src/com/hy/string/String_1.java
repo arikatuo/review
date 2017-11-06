@@ -6,6 +6,9 @@ package com.hy.string;
 public class String_1 {
     public static void main(String[] args) {
         String str="hello";
+        str.length();
+
+        str.intern();
         str="qqqq";
         str+=" a";
         System.out.println(str);

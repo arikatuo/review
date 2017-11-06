@@ -30,6 +30,7 @@ public class Test_1 {
         session.save(grade);
 
         session.getTransaction().commit();
+        session.close();
         sessionFactory.close();
 
     }

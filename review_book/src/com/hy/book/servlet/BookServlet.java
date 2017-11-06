@@ -13,11 +13,13 @@ import com.hy.book.web.BookStoreWebUtils;
 import com.hy.book.web.CriteriaBook;
 import com.hy.book.web.Page;
 
+import javax.jms.Session;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.lang.reflect.Method;
 import java.security.PrivateKey;
@@ -244,20 +246,74 @@ public class BookServlet extends HttpServlet {
     }
 
     protected void getBooks(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int pageNo = 1;
-        float minPrice = 0;
-        float maxPrice = Integer.MAX_VALUE;
+//        HttpSession session = request.getSession();
+//
+//        int pageNo = 1;
+//        float minPrice;
+//        float maxPrice;
+//
+//        if (request.getParameter("pageNo") == null) {
+//            if (session.getAttribute("pageNo") == null) {
+//                pageNo = 1;
+//                session.setAttribute("pageNo", request.getParameter("pageNo"));
+//            }
+//        } else {
+//            pageNo = Integer.parseInt((String) session.getAttribute("pageNo"));
+//        }
+//
+//
+//        if (session.getAttribute("minPrice") == null) {
+//            if (request.getParameter("minPrice") == null) {
+//                minPrice = 0;
+//
+//            } else {
+//                minPrice = Integer.parseInt(request.getParameter("minPrice"));
+//                session.setAttribute("minPrice", request.getParameter("minPrice"));
+//            }
+//        } else {
+//            minPrice = Float.parseFloat((String) session.getAttribute("minPrice"));
+//        }
+//
+//
+//        if (session.getAttribute("maxPrice") == null) {
+//            if (request.getParameter("maxPrice") == null) {
+//                maxPrice = Integer.MAX_VALUE;
+//
+//            } else {
+//                maxPrice = Integer.parseInt(request.getParameter("maxPrice"));
+//                session.setAttribute("maxPrice", request.getParameter("maxPrice"));
+//            }
+//        } else {
+//            maxPrice = Float.parseFloat((String) session.getAttribute("maxPrice"));
+//        }
 
-        //todo
-        if (request.getParameter("pageNo") != null) {
-            pageNo = Integer.parseInt(request.getParameter("pageNo"));
-        }
-        if (request.getParameter("minPrice") != null) {
-            minPrice = Float.parseFloat(request.getParameter("minPrice"));
-        }
-        if (request.getParameter("maxPrice") != null) {
-            maxPrice = Float.parseFloat(request.getParameter("maxPrice"));
-        }
+
+
+        String pageNoStr = request.getParameter("pageNo");
+        String minPriceStr = request.getParameter("minPrice");
+        String maxPriceStr = request.getParameter("maxPrice");
+
+        System.out.println("--------haha--------------");
+        System.out.println(pageNoStr);
+        System.out.println(minPriceStr);
+        System.out.println(maxPriceStr);
+        System.out.println("---------haha--------------");
+
+        int pageNo = 1;
+        int minPrice= 0;
+        int maxPrice = Integer.MAX_VALUE;
+
+        try {
+            pageNo = Integer.parseInt(pageNoStr);
+        } catch (NumberFormatException e) {}
+
+        try {
+            minPrice = Integer.parseInt(minPriceStr);
+        } catch (NumberFormatException e) {}
+
+        try {
+            maxPrice = Integer.parseInt(maxPriceStr);
+        } catch (NumberFormatException e) {}
 
 
         CriteriaBook criteriaBook = new CriteriaBook(minPrice, maxPrice, pageNo);

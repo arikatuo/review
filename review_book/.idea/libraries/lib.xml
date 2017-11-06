@@ -1,10 +1,25 @@
 <component name="libraryTable">
   <library name="lib">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/web/WEB-INF/lib" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/review_book_war_exploded/WEB-INF/lib/gson-2.2.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/review_book_war_exploded/WEB-INF/lib/hamcrest-core-1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/review_book_war_exploded/WEB-INF/lib/javax.persistence.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/review_book_war_exploded/WEB-INF/lib/mysql-connector-java-5.1.7-bin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/review_book_war_exploded/WEB-INF/lib/javax.resource.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/review_book_war_exploded/WEB-INF/lib/javax.servlet.jsp.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/review_book_war_exploded/WEB-INF/lib/junit-4.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/review_book_war_exploded/WEB-INF/lib/javax.servlet.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/review_book_war_exploded/WEB-INF/lib/javax.ejb.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/review_book_war_exploded/WEB-INF/lib/c3p0-0.9.1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/review_book_war_exploded/WEB-INF/lib/javax.servlet.jsp.jstl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/review_book_war_exploded/WEB-INF/lib/jstl.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/review_book_war_exploded/WEB-INF/lib/javax.jms.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/review_book_war_exploded/WEB-INF/lib/javax.transaction.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/review_book_war_exploded/WEB-INF/lib/standard.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/review_book_war_exploded/WEB-INF/lib/commons-dbutils-1.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/out/artifacts/review_book_war_exploded/WEB-INF/lib/javax.annotation.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
-    <jarDirectory url="file://$PROJECT_DIR$/web/WEB-INF/lib" recursive="false" />
   </library>
 </component>

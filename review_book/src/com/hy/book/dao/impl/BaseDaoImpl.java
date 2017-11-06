@@ -30,9 +30,7 @@ public class BaseDaoImpl<T> implements BaseDao<T> {
 
     @Override
     public long insert(String sql, Object... args) {
-
         long id = 0;
-
         Connection connection = null;
         PreparedStatement preparedStatement = null;
         ResultSet resultSet = null;

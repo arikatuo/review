@@ -6,13 +6,13 @@
         xmlns:aop="http://www.springframework.org/schema/aop"
         xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
     <!-- 配置需要被Spring管理的Bean（创建，创建后放在了Spring IOC容器里面）-->
-    <bean id="hello" class="com.hy.java.HelloWorld">
+    <bean id="hello" class="com.hy.java.HelloWorld" scope="session">
         <!-- 配置该Bean需要注入的属性（是通过属性set方法来注入的） -->
         <property name="info" value="Happy New Year!"/>
     </bean>
 
 
-    <bean id="stu1" name="stu1" class="com.hy.model.Stu1">
+    <bean id="stu1" name="stu1" class="com.hy.model.Stu1" >
         <constructor-arg>
             <value>韩懿帅逼</value>
         </constructor-arg>
@@ -36,7 +36,7 @@
         <property name="listStu">
             <list>
                 <ref bean="moniter"/>  <!--使用上面已定义好的bean -->
-                <ref bean="moniter"/>  <!--使用上面已定义好的bean -->
+                <!--<ref bean="moniter"/>  &lt;!&ndash;使用上面已定义好的bean &ndash;&gt;-->
                 <ref bean="stu1"/>     <!--使用上面已定义好的bean -->
                 <bean class="com.hy.model.Moniter"> <!--定义学生匿名内部类，用setter方法注入 -->
                     <property name="age" value="20"/>
@@ -71,7 +71,7 @@
                     <ref bean="moniter"/>  <!--使用上面已定义好的bean -->
                 </entry>
                 <entry key="key2">
-                    <bean class="com.hy.model.Moniter"> <!--定义学生匿名内部类，用setter方法注入 -->
+                    <bean class="com.hy.model.Moniter" > <!--定义学生匿名内部类，用setter方法注入 -->
                         <property name="age" value="80"/>
                         <property name="name" value="小王"/>
                         <property name="sex" value="男"/>
@@ -119,8 +119,8 @@
 
     <bean id="teachFile4" class="com.hy.model.TeachFile" autowire="constructor"/>
 
-    <bean id="personService" class="com.hy.model.PersonService" scope="singleton" init-method="init"
-          destroy-method="cleanUp">
+    <bean  id="personService" class="com.hy.model.PersonService" scope="singleton" init-method="init"
+          destroy-method="cleanUp" >
 
     </bean>
 
@@ -156,10 +156,6 @@
     <!--</aop:config>-->
 
     <aop:aspectj-autoproxy  />
-
-
-
-
 
     <!-- 配置数据源 -->
     <bean id="dataSource"

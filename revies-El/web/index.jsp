@@ -17,5 +17,6 @@
 盒子的表面积为:${box.area }<br>
 <c:set var="volum" value="volum" />
 盒子的容积为:${box[volum] }<br>
+盒子的容积为:${ }<br>
 </body>
 </html>
